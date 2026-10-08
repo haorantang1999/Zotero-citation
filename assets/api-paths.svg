@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 420" width="940" height="420" font-family="ui-sans-serif,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="a2r" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/>
+    </marker>
+  </defs>
+  <rect width="940" height="420" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">Which Zotero endpoint actually does what</text>
+  <text x="470" y="50" text-anchor="middle" font-size="12" fill="#64748b">Zotero 9.0.6 · 127.0.0.1:23119 — verified on Windows</text>
+
+  <!-- READ ONLY -->
+  <rect x="24" y="72" width="420" height="232" rx="14" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="234" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#b91c1c" letter-spacing="1">READ ONLY</text>
+
+  <rect x="44" y="112" width="380" height="52" rx="9" fill="#fff" stroke="#fecaca"/>
+  <text x="60" y="134" font-size="12.5" font-weight="600" fill="#0f172a" font-family="ui-monospace,Menlo,Consolas,monospace">GET /api/users/0/collections</text>
+  <text x="60" y="153" font-size="11" fill="#475569">200 — list collections and item counts</text>
+
+  <rect x="44" y="172" width="380" height="52" rx="9" fill="#fff" stroke="#fecaca"/>
+  <text x="60" y="194" font-size="12.5" font-weight="600" fill="#0f172a" font-family="ui-monospace,Menlo,Consolas,monospace">GET /api/users/0/collections/KEY/items</text>
+  <text x="60" y="213" font-size="11" fill="#475569">200 — read what a collection already holds</text>
+
+  <rect x="44" y="232" width="380" height="52" rx="9" fill="#fff" stroke="#fecaca" stroke-dasharray="5 3"/>
+  <text x="60" y="254" font-size="12.5" font-weight="600" fill="#b91c1c" font-family="ui-monospace,Menlo,Consolas,monospace">POST /api/users/0/collections</text>
+  <text x="60" y="273" font-size="11" fill="#b91c1c" font-weight="600">400 Endpoint does not support method</text>
+
+  <text x="234" y="300" text-anchor="middle" font-size="11.5" fill="#7f1d1d">Ticking “allow other apps to talk to Zotero”</text>
+  <text x="234" y="316" text-anchor="middle" font-size="11.5" fill="#7f1d1d">enables GET only — it never unlocks writes</text>
+
+  <!-- WRITE -->
+  <rect x="496" y="72" width="420" height="232" rx="14" fill="#f0fdf4" stroke="#bbf7d0"/>
+  <text x="706" y="98" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d" letter-spacing="1">THE ONLY WRITE PATH</text>
+
+  <rect x="516" y="112" width="380" height="52" rx="9" fill="#fff" stroke="#bbf7d0"/>
+  <text x="532" y="134" font-size="12.5" font-weight="600" fill="#0f172a" font-family="ui-monospace,Menlo,Consolas,monospace">POST /connector/import</text>
+  <text x="532" y="153" font-size="11" fill="#475569">201 — raw BibTeX body → creates items + keys</text>
+
+  <rect x="516" y="172" width="380" height="52" rx="9" fill="#fff" stroke="#bbf7d0"/>
+  <text x="532" y="194" font-size="12.5" font-weight="600" fill="#0f172a" font-family="ui-monospace,Menlo,Consolas,monospace">POST /connector/getSelectedCollection</text>
+  <text x="532" y="213" font-size="11" fill="#475569">200 — needs a body AND a JSON content-type</text>
+
+  <rect x="516" y="232" width="380" height="52" rx="9" fill="#fff" stroke="#fecaca" stroke-dasharray="5 3"/>
+  <text x="532" y="254" font-size="12.5" font-weight="600" fill="#b91c1c" font-family="ui-monospace,Menlo,Consolas,monospace">POST /connector/saveItems</text>
+  <text x="532" y="273" font-size="11" fill="#b91c1c" font-weight="600">500 — even with a valid minimal payload</text>
+
+  <text x="706" y="300" text-anchor="middle" font-size="11.5" fill="#14532d">import writes into whichever collection is</text>
+  <text x="706" y="316" text-anchor="middle" font-size="11.5" fill="#14532d">currently selected in the Zotero window</text>
+
+  <!-- bottom note -->
+  <rect x="24" y="324" width="892" height="72" rx="12" fill="#fffbeb" stroke="#fde68a"/>
+  <text x="470" y="348" text-anchor="middle" font-size="13" font-weight="700" fill="#92400e">So collection creation stays a human step</text>
+  <text x="470" y="370" text-anchor="middle" font-size="11.5" fill="#78350f">右键「我的文库」→ 新建分类 → 命名 → 点一下选中它 —— then poll the endpoint until it appears,</text>
+  <text x="470" y="387" text-anchor="middle" font-size="11.5" fill="#78350f">and re-check the selection immediately before every write, or you will pollute the wrong collection.</text>
+</svg>

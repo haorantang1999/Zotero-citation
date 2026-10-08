@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 448" width="940" height="448" font-family="ui-sans-serif,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eef2ff"/><stop offset="1" stop-color="#e0e7ff"/>
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ecfeff"/><stop offset="1" stop-color="#cffafe"/>
+    </linearGradient>
+    <linearGradient id="g3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f0fdf4"/><stop offset="1" stop-color="#dcfce7"/>
+    </linearGradient>
+    <marker id="arw" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="940" height="448" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">Zotero Citation — end-to-end pipeline</text>
+
+  <!-- PHASE 1 -->
+  <rect x="10" y="50" width="290" height="380" rx="14" fill="url(#g1)" stroke="#c7d2fe"/>
+  <text x="155" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#4338ca" letter-spacing="1.2">PHASE 1 · VERIFY</text>
+
+  <rect x="28" y="92" width="254" height="96" rx="10" fill="#fff" stroke="#c7d2fe"/>
+  <circle cx="52" cy="116" r="12" fill="#4f46e5"/><text x="52" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">1</text>
+  <text x="74" y="120" font-size="13" font-weight="600" fill="#0f172a">Probe Zotero</text>
+  <text x="44" y="144" font-size="11.5" fill="#475569">libraryID · Word plugin</text>
+  <text x="44" y="160" font-size="11.5" fill="#475569">installed? user asked?</text>
+  <text x="44" y="178" font-size="11" fill="#7c3aed">never promise refresh</text>
+  <text x="44" y="192" font-size="11" fill="#7c3aed">before checking</text>
+
+  <rect x="28" y="200" width="254" height="96" rx="10" fill="#fff" stroke="#c7d2fe"/>
+  <circle cx="52" cy="224" r="12" fill="#4f46e5"/><text x="52" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">2</text>
+  <text x="74" y="228" font-size="13" font-weight="600" fill="#0f172a">Verify every DOI</text>
+  <text x="44" y="252" font-size="11.5" fill="#475569">Crossref → DataCite fallback</text>
+  <text x="44" y="268" font-size="11.5" fill="#475569">arXiv / Zenodo need DataCite</text>
+  <text x="44" y="286" font-size="11" fill="#b45309">404 on Crossref ≠ fake</text>
+
+  <rect x="28" y="308" width="254" height="96" rx="10" fill="#fff" stroke="#c7d2fe"/>
+  <circle cx="52" cy="332" r="12" fill="#4f46e5"/><text x="52" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">3</text>
+  <text x="74" y="336" font-size="13" font-weight="600" fill="#0f172a">Build item list</text>
+  <text x="44" y="360" font-size="11.5" fill="#475569">from registry, not the .bib</text>
+  <text x="44" y="376" font-size="11.5" fill="#475569">normalise names &amp; years</text>
+  <text x="44" y="394" font-size="11" fill="#b45309">scan for creator defects</text>
+
+  <!-- PHASE 2 -->
+  <rect x="325" y="50" width="290" height="380" rx="14" fill="url(#g2)" stroke="#a5f3fc"/>
+  <text x="470" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#0e7490" letter-spacing="1.2">PHASE 2 · IMPORT</text>
+
+  <rect x="343" y="92" width="254" height="96" rx="10" fill="#fff" stroke="#a5f3fc"/>
+  <circle cx="367" cy="116" r="12" fill="#0891b2"/><text x="367" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">4</text>
+  <text x="389" y="120" font-size="13" font-weight="600" fill="#0f172a">Target collection</text>
+  <text x="359" y="144" font-size="11.5" fill="#475569">user creates AND selects it</text>
+  <text x="359" y="160" font-size="11.5" fill="#475569">re-check right before write</text>
+  <text x="359" y="178" font-size="11" fill="#be123c">abort if selection changed</text>
+
+  <rect x="343" y="200" width="254" height="96" rx="10" fill="#fff" stroke="#a5f3fc"/>
+  <circle cx="367" cy="224" r="12" fill="#0891b2"/><text x="367" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">5</text>
+  <text x="389" y="228" font-size="13" font-weight="600" fill="#0f172a">POST /connector/import</text>
+  <text x="359" y="252" font-size="11.5" fill="#475569">body = raw BibTeX bytes</text>
+  <text x="359" y="268" font-size="11.5" fill="#475569">201 → returns item keys</text>
+  <text x="359" y="286" font-size="11" fill="#be123c">saveItems returns 500</text>
+
+  <rect x="343" y="308" width="254" height="96" rx="10" fill="#fff" stroke="#a5f3fc"/>
+  <circle cx="367" cy="332" r="12" fill="#0891b2"/><text x="367" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">6</text>
+  <text x="389" y="336" font-size="13" font-weight="600" fill="#0f172a">Map cite keys</text>
+  <text x="359" y="360" font-size="11.5" fill="#475569">DOI → title → prefix</text>
+  <text x="359" y="376" font-size="11.5" fill="#475569">emit citekey → zoteroKey</text>
+  <text x="359" y="394" font-size="11" fill="#b45309">log every unmatched entry</text>
+
+  <!-- PHASE 3 -->
+  <rect x="640" y="50" width="290" height="380" rx="14" fill="url(#g3)" stroke="#bbf7d0"/>
+  <text x="785" y="76" text-anchor="middle" font-size="13" font-weight="700" fill="#15803d" letter-spacing="1.2">PHASE 3 · REWRITE</text>
+
+  <rect x="658" y="92" width="254" height="96" rx="10" fill="#fff" stroke="#bbf7d0"/>
+  <circle cx="682" cy="116" r="12" fill="#16a34a"/><text x="682" y="120" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">7</text>
+  <text x="704" y="120" font-size="13" font-weight="600" fill="#0f172a">Rewrite citations</text>
+  <text x="674" y="144" font-size="11.5" fill="#475569">ZOTERO_ITEM CSL_CITATION</text>
+  <text x="674" y="160" font-size="11.5" fill="#475569">+ ZOTERO_BIBL + ZOTERO_PREF</text>
+  <text x="674" y="178" font-size="11" fill="#15803d">write a new file, keep original</text>
+
+  <rect x="658" y="200" width="254" height="96" rx="10" fill="#fff" stroke="#bbf7d0"/>
+  <circle cx="682" cy="224" r="12" fill="#16a34a"/><text x="682" y="228" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">8</text>
+  <text x="704" y="228" font-size="13" font-weight="600" fill="#0f172a">Verify</text>
+  <text x="674" y="252" font-size="11.5" fill="#475569">XML DOM for field count</text>
+  <text x="674" y="268" font-size="11.5" fill="#475569">Word COM = real proof</text>
+  <text x="674" y="286" font-size="11" fill="#be123c">well-formed ≠ opens</text>
+
+  <rect x="658" y="308" width="254" height="96" rx="10" fill="#fff" stroke="#bbf7d0"/>
+  <circle cx="682" cy="332" r="12" fill="#16a34a"/><text x="682" y="336" text-anchor="middle" font-size="12" font-weight="700" fill="#fff">9</text>
+  <text x="704" y="336" font-size="13" font-weight="600" fill="#0f172a">Report honestly</text>
+  <text x="674" y="360" font-size="11.5" fill="#475569">resolved vs unresolved DOIs</text>
+  <text x="674" y="376" font-size="11.5" fill="#475569">type mismatches + keys</text>
+  <text x="674" y="394" font-size="11" fill="#be123c">list user actions still due</text>
+
+  <!-- arrows -->
+  <line x1="302" y1="240" x2="321" y2="240" stroke="#64748b" stroke-width="2.5" marker-end="url(#arw)"/>
+  <line x1="617" y1="240" x2="636" y2="240" stroke="#64748b" stroke-width="2.5" marker-end="url(#arw)"/>
+</svg>

@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 500" width="940" height="500" font-family="ui-sans-serif,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif">
+  <defs>
+    <marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+  </defs>
+  <rect width="940" height="500" fill="#ffffff"/>
+  <text x="470" y="30" text-anchor="middle" font-size="19" font-weight="700" fill="#0f172a">Anatomy of a Zotero citation field</text>
+  <text x="470" y="50" text-anchor="middle" font-size="12" fill="#64748b">five runs replace the plain text — Word sees one field, Zotero sees live metadata</text>
+
+  <!-- the five runs -->
+  <rect x="30" y="72" width="66" height="58" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="63" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">begin</text>
+  <text x="63" y="115" text-anchor="middle" font-size="9.5" fill="#64748b">fldChar</text>
+
+  <rect x="104" y="72" width="330" height="58" rx="8" fill="#e0e7ff" stroke="#818cf8"/>
+  <text x="269" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#3730a3">instrText</text>
+  <text x="269" y="112" text-anchor="middle" font-size="9.5" fill="#4338ca" font-family="ui-monospace,Menlo,Consolas,monospace">ADDIN ZOTERO_ITEM CSL_CITATION {json}</text>
+  <text x="269" y="126" text-anchor="middle" font-size="8.5" fill="#6366f1">hidden — carries the whole citation</text>
+
+  <rect x="442" y="72" width="82" height="58" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="483" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">separate</text>
+  <text x="483" y="115" text-anchor="middle" font-size="9.5" fill="#64748b">fldChar</text>
+
+  <rect x="532" y="72" width="330" height="58" rx="8" fill="#dcfce7" stroke="#4ade80"/>
+  <text x="697" y="94" text-anchor="middle" font-size="11" font-weight="700" fill="#14532d">display text</text>
+  <text x="697" y="112" text-anchor="middle" font-size="9.5" fill="#15803d" font-family="ui-monospace,Menlo,Consolas,monospace">(Biljecki &amp; Ito, 2021; …)</text>
+  <text x="697" y="126" text-anchor="middle" font-size="8.5" fill="#16a34a">what the reader sees until first refresh</text>
+
+  <rect x="870" y="72" width="52" height="58" rx="8" fill="#e2e8f0" stroke="#94a3b8"/>
+  <text x="896" y="98" text-anchor="middle" font-size="11" font-weight="700" fill="#334155">end</text>
+  <text x="896" y="115" text-anchor="middle" font-size="9.5" fill="#64748b">fldChar</text>
+
+  <line x1="99" y1="101" x2="103" y2="101" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="437" y1="101" x2="441" y2="101" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="527" y1="101" x2="531" y2="101" stroke="#94a3b8" stroke-width="2"/>
+  <line x1="865" y1="101" x2="869" y2="101" stroke="#94a3b8" stroke-width="2"/>
+
+  <text x="697" y="156" text-anchor="middle" font-size="11" fill="#64748b">copy the original run’s &lt;w:rPr&gt; onto all five so formatting survives</text>
+
+  <!-- JSON -->
+  <text x="30" y="196" font-size="14" font-weight="700" fill="#0f172a">What the instrText JSON looks like</text>
+  <rect x="30" y="208" width="560" height="248" rx="10" fill="#0f172a"/>
+  <text x="48" y="232" font-size="11.5" fill="#93c5fd" font-family="ui-monospace,Menlo,Consolas,monospace">{</text>
+  <text x="48" y="252" font-size="11.5" fill="#c4b5fd" font-family="ui-monospace,Menlo,Consolas,monospace">  "citationID": "mrg1",</text>
+  <text x="48" y="272" font-size="11.5" fill="#c4b5fd" font-family="ui-monospace,Menlo,Consolas,monospace">  "properties": {</text>
+  <text x="66" y="292" font-size="11.5" fill="#fca5a5" font-family="ui-monospace,Menlo,Consolas,monospace">    "formattedCitation": "(Biljecki &amp; Ito, 2021; …)",</text>
+  <text x="66" y="312" font-size="11.5" fill="#fca5a5" font-family="ui-monospace,Menlo,Consolas,monospace">    "plainCitation": "(Biljecki &amp; Ito, 2021; …)",</text>
+  <text x="66" y="332" font-size="11.5" fill="#94a3b8" font-family="ui-monospace,Menlo,Consolas,monospace">    "noteIndex": 0</text>
+  <text x="48" y="352" font-size="11.5" fill="#c4b5fd" font-family="ui-monospace,Menlo,Consolas,monospace">  },</text>
+  <text x="48" y="372" font-size="11.5" fill="#86efac" font-family="ui-monospace,Menlo,Consolas,monospace">  "citationItems": [{ "id": 1,</text>
+  <text x="66" y="392" font-size="11.5" fill="#fcd34d" font-family="ui-monospace,Menlo,Consolas,monospace">    "uris": ["http://zotero.org/users/local/1/items/UEJZJPKH"],</text>
+  <text x="66" y="412" font-size="11.5" fill="#fcd34d" font-family="ui-monospace,Menlo,Consolas,monospace">    "itemData": { "type": "article-journal", … } }],</text>
+  <text x="48" y="432" font-size="11.5" fill="#c4b5fd" font-family="ui-monospace,Menlo,Consolas,monospace">  "schema": "…/csl-citation.json"</text>
+  <text x="48" y="450" font-size="11.5" fill="#93c5fd" font-family="ui-monospace,Menlo,Consolas,monospace">}</text>
+
+  <!-- side notes -->
+  <rect x="610" y="208" width="300" height="248" rx="10" fill="#f8fafc" stroke="#cbd5e1"/>
+  <text x="628" y="234" font-size="12.5" font-weight="700" fill="#0f172a">Three things that decide</text>
+  <text x="628" y="258" font-size="12.5" font-weight="700" fill="#0f172a">whether it actually works</text>
+
+  <circle cx="636" cy="282" r="9" fill="#f59e0b"/><text x="636" y="286" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">1</text>
+  <text x="654" y="280" font-size="11.5" font-weight="600" fill="#0f172a">uris must be real</text>
+  <text x="654" y="297" font-size="11" fill="#475569">embedded itemData alone renders,</text>
+  <text x="654" y="313" font-size="11" fill="#475569">but never links back to the library</text>
+
+  <circle cx="636" cy="342" r="9" fill="#f59e0b"/><text x="636" y="346" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">2</text>
+  <text x="654" y="340" font-size="11.5" font-weight="600" fill="#0f172a">use prefix for prose</text>
+  <text x="654" y="357" font-size="11" fill="#475569">(EULUC-China; Gong et al., 2020)</text>
+  <text x="654" y="373" font-size="11" fill="#475569">→ "prefix": "EULUC-China; " — no nested ()</text>
+
+  <circle cx="636" cy="402" r="9" fill="#f59e0b"/><text x="636" y="406" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">3</text>
+  <text x="654" y="400" font-size="11.5" font-weight="600" fill="#0f172a">libraryID ≠ web user ID</text>
+  <text x="654" y="417" font-size="11" fill="#475569">use the libraryID from getSelectedCollection</text>
+  <text x="654" y="433" font-size="11" fill="#475569">(usually 1, not 17571762)</text>
+
+  <!-- footer -->
+  <rect x="30" y="466" width="880" height="26" rx="7" fill="#fef2f2" stroke="#fecaca"/>
+  <text x="470" y="484" text-anchor="middle" font-size="11.5" font-weight="600" fill="#b91c1c">Without the Zotero Word plugin installed these fields are inert — they will never refresh.</text>
+</svg>
